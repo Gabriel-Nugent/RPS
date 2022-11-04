@@ -1,70 +1,26 @@
-function computerPlay()
-{
-    let computer_moves = ["rock","paper","scissors"];
-    return computer_moves[Math.floor(Math.random()*computer_moves.length)];
-}
-
-function playRound()
-{
-    let outcome = "not tie";
-    
-    do{
-        let player_choice = prompt("Enter RPS move choice: ");
-        player_choice = player_choice.toLowerCase();
-
-        let computer_choice = computerPlay();
-        
-        if (computer_choice == player_choice)
-        {
-            outcome = "tie";
-        }
-        else if((computer_choice == "paper" && player_choice == "rock") 
-        || (computer_choice == "rock" && player_choice == "scissors") 
-        || (computer_choice == "scissors" && player_choice == "paper"))
-        {
-            outcome = "computer wins";
-        }
-        else{
-            outcome = "player wins";
-        }
-
-        console.log("computer chose: " + computer_choice + "\nplayer chose: " + player_choice
-            + "\nresult was: " + outcome + "\n");
+function playRound(player_move){
+    const event_text = document.getElementById('event_text')
+    const possible_moves = ['rock','paper','scissors'];
+    const computer_move = possible_moves[Math.floor(Math.random()*possible_moves.length)]
+    if(player_move == computer_move){
+        event_text.textContent="Computer chose " + computer_move + "... it's a tie! :o";
     }
-    while(outcome == "tie");
-
-    return outcome;
-}
-
-function game()
-{
-    let player_wins = 0;
-    let computer_wins = 0;
-
-    for(let i = 0; i < 5; i++)
-    {
-        let round_outcome = playRound();
-        
-        if (round_outcome == "computer wins")
-        {
-            computer_wins++;
+    else if(player_move == 'rock' && computer_move == 'paper' 
+        || player_move == 'paper' && computer_move == 'scissors'
+        || player_move == 'scissors' && computer_move == 'rock'){
+            event_text.textContent="Computer chose " + computer_move + "... you lose! :(";
         }
-        else
-        {
-            player_wins++;
-        }
-
-        console.log("~CURRENT SCORE~\n\nComputer: " + computer_wins + "\nPlayer: " + player_wins + "\n");
-    }
-
-    if(player_wins > computer_wins)
-    {
-        console.log("PLAYER WINS!");
-    }
-    else
-    {
-        console.log("COMPUTER WINS!");
+    else{
+        event_text.textContent="Computer chose " + computer_move + "... you win! :)"  ;
     }
 }
 
-game();
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+
+rock.addEventListener('click',function () {playRound('rock','event_text');});
+paper.addEventListener('click',function () {playRound('paper','event_text');});
+scissors.addEventListener('click',function () {playRound('scissors','event_text');});
+
+
