@@ -1,0 +1,33 @@
+*{
+    padding: 10px;
+    font-family: Optima, sans-serif;
+}
+
+body, html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#round {
+    display: flex;
+}
+
+#score {
+    padding: 0px;
+}
+
+#score {
+    display: flex;
+}
+
+#score_numbers {
+    display: flex;
+}

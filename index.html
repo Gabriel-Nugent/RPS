@@ -5,11 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
     <h id="title">Welcome to Javascript Rock,Paper,Scissors</h>
-    <p id="event_text">To play a round, click the corresponding to select your move</p>
+    <div id="event_text">
+        Click the corresponding button to select your move
+    </div>
+    <div id="round">
+        <div id="round_text">Round: </div>
+        <div id="round_number">1</div>
+    </div>
+    <div id="score">
+        <div id="score_numbers">
+            <div id="player_score">0</div>
+            <div id="dash">-</div>
+            <div id="computer_score">0</div>
+        </div>
+    </div>
     <div id="container">
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
